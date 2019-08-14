@@ -1,0 +1,13 @@
+avli.clojure
+betterthantomorrow.calva
+clptn.code-paredit
+CoenraadS.bracket-pair-colorizer
+DavidAnson.vscode-markdownlint
+dsznajder.es7-react-js-snippets
+eamodio.gitlens
+HookyQR.beautify
+kumar-harsh.graphql-for-vscode
+mrcrowl.easy-less
+ms-vsliveshare.vsliveshare
+vscode-icons-team.vscode-icons
+waderyan.gitblame
