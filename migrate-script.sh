@@ -14,10 +14,11 @@ brew cask install \
 visual-studio-code \ 
 docker \ 
 spotify \ 
-graphiql \ 
+graphql-ide \ 
 iterm2 \ 
 firefox \ 
 google-chrome \ 
+microsoft-teams
 
 echo "Copying zshrc.."
 cat zshrc.txt >> ~/.zshrc
