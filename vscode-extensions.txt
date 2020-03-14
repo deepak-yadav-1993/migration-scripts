@@ -15,7 +15,9 @@ kumar-harsh.graphql-for-vscode
 mrcrowl.easy-less
 ms-azuretools.vscode-docker
 ms-vsliveshare.vsliveshare
+PKief.material-icon-theme
 rbbit.typescript-hero
+shakram02.bash-beautify
 skyran.js-jsx-snippets
 vscode-icons-team.vscode-icons
 waderyan.gitblame
