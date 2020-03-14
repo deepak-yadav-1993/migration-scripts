@@ -1,4 +1,4 @@
-echo "Install NVM?\n 1. Yes 2. No\n"
+echo "Install NVM?\n 1. (Yes)\n 2. (No)\n"
 read nvm_confirmation
 if [ $nvm_confirmation -eq 1 ]
 then
@@ -7,7 +7,7 @@ else
     echo "Skipping NVM install\n"
 fi
 
-echo "Download cenx code and install dependencies?\n 1. Yes 2. No\n"
+echo "Download cenx code and install dependencies?\n 1. (Yes)\n 2. (No)\n"
 read cenx_confirmation
 if [ $cenx_confirmation -eq 1 ]
 then
@@ -27,17 +27,9 @@ read packages
 brew install $packages
 
 echo "Brewing basic graphic based applications\n visual-studio-code \n docker \n spotify \n graphql-ide \n iterm2 \n firefox \n google-chrome \n microsoft-teams\n"
-brew cask install \\
-visual-studio-code \
-docker \
-spotify \
-graphql-ide \
-iterm2 \
-firefox \
-google-chrome \
-microsoft-teams
+brew cask install visual-studio-code docker spotify graphql-ide iterm2 firefox google-chrome microsoft-teams
 
-echo "Install other brew_cask graphic packages?\n 1. Yes\n 2. No\n"
+echo "\nInstall other brew_cask graphic packages?\n 1. (Yes)\n 2. (No)\n"
 read brew_cask_packages_confirmation
 if [ $brew_cask_packages_confirmation -eq 1 ]
 then
@@ -51,7 +43,7 @@ fi
 echo "Copying zshrc.."
 cat zshrc.txt >> ~/.zshrc
 
-echo "Installing vscode extensions.."
+echo "\nInstalling vscode extensions.."
 while read line
 do  code --install-extension $line
 done < vscode-extensions.txt
