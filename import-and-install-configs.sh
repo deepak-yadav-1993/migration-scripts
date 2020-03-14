@@ -41,7 +41,8 @@ else
 fi
 
 echo "Copying zshrc.."
-cat zshrc.txt >> ~/.zshrc
+rm ~/.zshrc
+cat zshrc.sh >> ~/.zshrc
 
 echo "\nInstalling vscode extensions.."
 while read line
