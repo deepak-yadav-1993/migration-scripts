@@ -1,9 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
- export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/EDVXDPK/.oh-my-zsh"
@@ -13,10 +13,14 @@ JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 export JAVA_HOME
 
 #check if nvmrc present
-FILE=.nvmrc
-if test -f "$FILE"; then
-    nvm use
-fi
+check_nvm(){
+    FILE=.nvmrc
+    if test -f "$FILE"; then
+        nvm use
+    fi
+}
+
+check_nvm
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -115,16 +119,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 plugins=(
-  git
-  bundler
-  dotenv
-  osx
-  rake
-  rbenv
-  ruby
-  kubectl
-  helm
-  zsh-autosuggestions
+    git
+    bundler
+    dotenv
+    osx
+    rake
+    rbenv
+    ruby
+    kubectl
+    helm
+    zsh-autosuggestions
 )
 
 # If you come from bash you might have to change your $PATH.
@@ -148,7 +152,7 @@ set_cluster() {
       "$(cat ~/Desktop/work-clusters/todd013-config.yml > ~/.kube/config)"
     } &> /dev/null
     printf "\nConfig added for todd013\n"
-  elif [ "$cluster_name" = "hoff052" ]; then 
+  elif [ "$cluster_name" = "hoff052" ]; then
     {
       "$(cat ~/Desktop/work-clusters/hoff052-config.yml > ~/.kube/config)"
     } &> /dev/null
@@ -208,3 +212,6 @@ prompt_context() {
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
   fi
 }
+
+
+% function chpwd () { check_nvm }  
