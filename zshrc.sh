@@ -26,8 +26,10 @@ check_nvm
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
 # ZSH_THEME="af-magic"
+ZSH_THEME="agnoster"
+
+# MAKE SURE TO FIND A WAY TO INSTALL AGNOSTER THEME AND CHANGE THE FONTS
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
