@@ -20,7 +20,16 @@ check_nvm(){
     fi
 }
 
+#check if wdio.conf.sh present
+check_wdio_config(){
+    FILE='./wdio.conf.sh'
+    if test -f "$FILE"; then
+        source ./wdio.conf.sh
+    fi
+}
+
 check_nvm
+check_wdio_config
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -147,21 +156,37 @@ source /dev/stdin <<<"$(cat <(gpg --quiet --decrypt ~/.shadow-cljs/credentials.g
 set_cluster() {
   cluster_name=$1;
   printf "$1"
-  if [ "$cluster_name" = "todd013" ]; then
+  case $1 in
+
+  todd013)
     {
-      "$(cat ~/Desktop/work-clusters/todd013-config.yml > ~/.kube/config)"
+      "$(cat ~/Desktop/work-clusters/${cluster_name}-config.yml > ~/.kube/config)"
     } &> /dev/null
-    printf "\nConfig added for todd013\n"
-  elif [ "$cluster_name" = "hoff052" ]; then
+    ;;
+
+  hoff095)
     {
-      "$(cat ~/Desktop/work-clusters/hoff052-config.yml > ~/.kube/config)"
+      "$(cat ~/Desktop/work-clusters/${cluster_name}-config.yml > ~/.kube/config)"
     } &> /dev/null
-    printf "\nConfig added for hoff052\n"
-  else
-    printf "\Current Config\n"
+    ;;
+
+  hoff140)
+    {
+      "$(cat ~/Desktop/work-clusters/${cluster_name}-config.yml > ~/.kube/config)"
+    } &> /dev/null
+    ;;
+
+  hahn170)
+    {
+      "$(cat ~/Desktop/work-clusters/${cluster_name}-config.yml > ~/.kube/config)"
+    } &> /dev/null
+    ;;
+
+  *)
+    printf "\nnConfig Not found\n"
     "$(cat ~/.kube/config)"
-    return false
-  fi
+    ;;
+esac
 }
 
 # A general utility to sync current branch with the branch you pass as the parameter
@@ -213,5 +238,13 @@ prompt_context() {
   fi
 }
 
+alias cdc="node ~/Ericsson/code/cenx/apps/tools/cenx-directive-tool/src/index.js"
 
-% function chpwd () { check_nvm }  
+fault-repl() {
+    local ip=$(kubectl get pod -l app=eric-cenx-fault -o jsonpath={.items..status.hostIP})
+    local port=$(kubectl get svc -l app=eric-cenx-fault -o jsonpath='{.items..spec.ports[?(@.name=="fault-replport")].nodePort}')
+    echo "Connecting to fault repl on $ip:$port"
+    lein repl :connect $ip:$port
+}
+
+% function chpwd () { check_nvm && check_wdio_config }
