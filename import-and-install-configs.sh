@@ -24,7 +24,7 @@ else
     echo "Skipping CENX download and install\n"
 fi
 
-echo "Brewing basic graphic based applications\n visual-studio-code \n docker \n spotify \n graphql-ide \n iterm2 \n 
+echo "Brewing basic graphic based applications\n visual-studio-code \n docker \n spotify \n graphql-ide \n iterm2 \n
 firefox \n google-chrome \n microsoft-teams\n postman\n"
 brew update
 brew cask install visual-studio-code docker spotify graphql-ide iterm2 firefox google-chrome microsoft-teams postman
@@ -63,3 +63,19 @@ echo "\nInstalling vscode extensions.."
 while read line
 do  code --install-extension $line
 done < vscode-extensions.txt
+
+echo "\n Installing powerline font\n"
+{
+    # clone
+    git clone https://github.com/powerline/fonts.git --depth=1
+    # install
+    cd fonts
+    ./install.sh
+    # clean-up a bit
+    cd ..
+    rm -rf fonts
+} &> /dev/null # For no output. Remove &> /dev/null for debugging
+
+echo "\ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699"
+
+echo "\n To make sure terminal font works okay, import ./Profiles.json in \n iterm2>preferences>profiles>Other Actions>Import JSON Profiles..."
