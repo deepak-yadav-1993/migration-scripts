@@ -40,8 +40,8 @@ else
     echo "Skipping more brew_cask installs\n"
 fi
 
-echo "Brewing basic development packages \n git nvm \n"
-brew install git zsh nvm
+echo "Brewing basic development packages \n git zsh nvm zsh-autosuggestions \n"
+brew install git zsh nvm zsh-autosuggestions
 echo "\n Make sure you have nvm home environment variable set up\n export NVM_DIR="$HOME/.nvm""
 
 echo "\nInstall other brew packages?\n 1. (Yes)\n 2. (No)\n"
