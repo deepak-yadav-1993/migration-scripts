@@ -20,7 +20,16 @@ check_nvm(){
     fi
 }
 
+#check if wdio.conf.sh present
+check_wdio_config(){
+    FILE='./wdio.conf.sh'
+    if test -f "$FILE"; then
+        source ./wdio.conf.sh
+    fi
+}
+
 check_nvm
+check_wdio_config
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -28,7 +37,6 @@ check_nvm
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
 # ZSH_THEME="af-magic"
-# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
@@ -129,6 +137,7 @@ plugins=(
     ruby
     kubectl
     helm
+    zsh-autosuggestions
 )
 
 # If you come from bash you might have to change your $PATH.
@@ -140,6 +149,22 @@ export ZSH=$HOME/.oh-my-zsh
 
 export PATH="/usr/local/opt/helm@2/bin:$PATH"
 export PATH="/usr/local/opt/helm@2/bin:$PATH"
+
+source /dev/stdin <<<"$(cat <(gpg --quiet --decrypt ~/.shadow-cljs/credentials.gpg))"
+
+# To dynamically change the cluster config
+set_cluster() {
+  FILE="$(echo ~/Desktop/work-clusters/$1-config.yml)"
+  if [[ -f $FILE ]];then
+      {
+        "$(cat $FILE > ~/.kube/config)"
+      } &> /dev/null
+      echo "\nContext set to $1"
+  else
+      echo "Configuration file $FILE does not exist.\n"
+      echo "$(grep -w current-context: ~/.kube/config)"
+  fi
+}
 
 # A general utility to sync current branch with the branch you pass as the parameter
 sync_branch() {
@@ -167,7 +192,17 @@ prompt_context() {
   fi
 }
 
+alias cdc="node ~/Ericsson/code/cenx/apps/tools/cenx-directive-tool/src/index.js"
 
-% function chpwd () { check_nvm }  
+fault-repl() {
+  # Used for connecting to the fault repl of the specified namespace
+    CONTEXT="$(grep -w current-context: ~/.kube/config)"
+    echo "$CONTEXT\nConnecting to fault repl on namespace $1"
+    FAULT_REPL_CONNECTION="$(python3 ~/Desktop/work-clusters/fault_repl_connect.py $1 | grep -a "lein repl :connect")"
+    eval $FAULT_REPL_CONNECTION
+}
 
+% function chpwd () { check_nvm && check_wdio_config }
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

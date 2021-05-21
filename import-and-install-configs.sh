@@ -31,7 +31,7 @@ else
 fi
 
 echo "Brewing basic development packages \n git zsh nvm zsh-autosuggestions \n"
-brew install git zsh nvm zsh-autosuggestions
+brew install git zsh nvm zsh-autosuggestions zsh-syntax-highlighting
 echo "\n Make sure you have nvm home environment variable set up\n export NVM_DIR="$HOME/.nvm""
 
 echo "\nInstall other brew packages?\n 1. (Yes)\n 2. (No)\n"
@@ -60,7 +60,7 @@ while read line; do
 done <vscode-extensions.txt
 
 echo "\nMoving settings.json.."
-cp settings.json ~/Library/Application\ Support/Code/User/settings.json/settings.json
+cp settings.json ~/Library/Application\ Support/Code/User/settings.json
 
 echo "\n Installing powerline font\n"
 {
