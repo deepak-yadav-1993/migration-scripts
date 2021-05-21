@@ -6,7 +6,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/EDVXDPK/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 #set JAVA_HOME
 JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
@@ -20,25 +20,15 @@ check_nvm(){
     fi
 }
 
-#check if wdio.conf.sh present
-check_wdio_config(){
-    FILE='./wdio.conf.sh'
-    if test -f "$FILE"; then
-        source ./wdio.conf.sh
-    fi
-}
-
 check_nvm
-check_wdio_config
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="af-magic"
 ZSH_THEME="agnoster"
-
-# MAKE SURE TO FIND A WAY TO INSTALL AGNOSTER THEME AND CHANGE THE FONTS
+# ZSH_THEME="af-magic"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
@@ -139,7 +129,6 @@ plugins=(
     ruby
     kubectl
     helm
-    zsh-autosuggestions
 )
 
 # If you come from bash you might have to change your $PATH.
@@ -151,45 +140,6 @@ export ZSH=$HOME/.oh-my-zsh
 
 export PATH="/usr/local/opt/helm@2/bin:$PATH"
 export PATH="/usr/local/opt/helm@2/bin:$PATH"
-
-source /dev/stdin <<<"$(cat <(gpg --quiet --decrypt ~/.shadow-cljs/credentials.gpg))"
-
-# To dynamically change the cluster config
-set_cluster() {
-  cluster_name=$1;
-  printf "$1"
-  case $1 in
-
-  todd013)
-    {
-      "$(cat ~/Desktop/work-clusters/${cluster_name}-config.yml > ~/.kube/config)"
-    } &> /dev/null
-    ;;
-
-  hoff095)
-    {
-      "$(cat ~/Desktop/work-clusters/${cluster_name}-config.yml > ~/.kube/config)"
-    } &> /dev/null
-    ;;
-
-  hoff140)
-    {
-      "$(cat ~/Desktop/work-clusters/${cluster_name}-config.yml > ~/.kube/config)"
-    } &> /dev/null
-    ;;
-
-  hahn170)
-    {
-      "$(cat ~/Desktop/work-clusters/${cluster_name}-config.yml > ~/.kube/config)"
-    } &> /dev/null
-    ;;
-
-  *)
-    printf "\nnConfig Not found\n"
-    "$(cat ~/.kube/config)"
-    ;;
-esac
-}
 
 # A general utility to sync current branch with the branch you pass as the parameter
 sync_branch() {
@@ -211,42 +161,13 @@ sync_branch() {
   fi
 }
 
-delete_snamespace() {
-  name_space=$1;
-  echo "\nAre you sure you want to Delete?\n1. Yes\n2. No"
-  read confirmation
-  if [ $confirmation -eq 1 ]
-      then
-      charts="$(helm ls --namespace $name_space | awk 'BEGIN { ORS=" " }; { print $1 }' | sed 's/NAME//g')"
-      echo "\nDeleting Charts->$charts"
-      purge_status="$(helm del --purge $charts)"
-      delete_status="$(helm del --purge $charts)"
-      kubectl delete secrets -n $name_space ldap
-      kubectl delete secret replication superuser postgres -n $name_space
-      echo "\nDeleting $name_space namespace\n"
-      kubectl delete namespace $name_space
-  elif [ $confirmation -eq 2 ]
-      then
-      exit
-  else
-      echo "\nInvalid Selection"
-      exit
-  fi
-}
-
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
   fi
 }
 
-alias cdc="node ~/Ericsson/code/cenx/apps/tools/cenx-directive-tool/src/index.js"
 
-fault-repl() {
-    local ip=$(kubectl get pod -l app=eric-cenx-fault -o jsonpath={.items..status.hostIP})
-    local port=$(kubectl get svc -l app=eric-cenx-fault -o jsonpath='{.items..spec.ports[?(@.name=="fault-replport")].nodePort}')
-    echo "Connecting to fault repl on $ip:$port"
-    lein repl :connect $ip:$port
-}
+% function chpwd () { check_nvm }  
 
-% function chpwd () { check_nvm && check_wdio_config }
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
