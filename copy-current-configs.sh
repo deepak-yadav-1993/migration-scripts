@@ -16,5 +16,14 @@ else
     echo "Skipping copying zshrc\n"
 fi
 
+echo "\nWant to copy vscode settings.json?\n 1. (Yes)\n 2. (No)\n"
+read copy_vscode_settings_confirm
+if [ $copy_vscode_settings_confirm -eq 1 ]; then
+    echo "copying vscode settings.."
+    cp ~/Library/Application\ Support/Code/User/settings.json ./settings.json
+else
+    echo "Skipping vscode settings.."
+fi
+
 echo "Please copy the latest json profile into this directory from\n iterm2>preferences>profiles>Other Actions>Save all profiles as json\n"
 echo "run ./import-and-install-configs to import the configs\n"

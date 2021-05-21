@@ -59,6 +59,9 @@ while read line; do
     code --install-extension $line
 done <vscode-extensions.txt
 
+echo "\nMoving settings.json.."
+cp settings.json ~/Library/Application\ Support/Code/User/settings.json/settings.json
+
 echo "\n Installing powerline font\n"
 {
     # clone
