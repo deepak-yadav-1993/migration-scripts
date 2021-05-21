@@ -44,9 +44,15 @@ else
     echo "Skipping more brew installs\n"
 fi
 
-echo "Copying zshrc.."
-rm ~/.zshrc
-cat zshrc.sh >>~/.zshrc
+echo "\nWill replace current .zshrc with the file located in this directory! Continue?\n 1. (Yes)\n 2. (No)\n"
+read zshrc_import_confirm
+if [ $zshrc_import_confirm -eq 1 ]; then
+    echo "Copying zshrc.."
+    rm ~/.zshrc
+    cat zshrc.sh >>~/.zshrc
+else
+    echo "Skipping .zshrc import\n"
+fi
 
 echo "\nInstalling vscode extensions.."
 while read line; do
