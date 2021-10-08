@@ -16,9 +16,9 @@ import_configs(){
     }
     
     echo "Brewing basic graphic based applications\n visual-studio-code \n docker \n spotify \n graphql-ide \n iterm2 \n
-    firefox \n google-chrome \n microsoft-teams\n postman\n"
+    firefox \n google-chrome \n postman\n drawio\n"
     brew update
-    brew install --cask visual-studio-code docker spotify graphql-ide iterm2 firefox google-chrome microsoft-teams postman
+    brew install --cask visual-studio-code docker spotify graphql-ide iterm2 firefox google-chrome postman drawio
     
     echo "\nInstall other brew_cask graphic packages?\n 1. (Yes)\n 2. (No)\n"
     read brew_cask_packages_confirmation
@@ -44,7 +44,7 @@ import_configs(){
         echo "Skipping more brew installs\n"
     fi
     
-    echo "\nWill replace current .zshrc with the file located in this directory! Continue?\n 1. (Yes)\n 2. (No)\n"
+    echo "\nWill append ~/.zshrc with the contents of file .zshrc.txt ! Continue?\n 1. (Yes)\n 2. (No)\n"
     read zshrc_import_confirm
     if [ $zshrc_import_confirm -eq 1 ]; then
         echo "Appending at the end of .zshrc file"
