@@ -78,7 +78,7 @@ import_configs(){
     
     echo "\ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699"
     
-    echo "\n To make sure terminal font works okay, import ./Profiles.json in \n iterm2>preferences>profiles>Other Actions>Import JSON Profiles..."
+    echo "\n To make sure terminal font works okay, import ./Profiles.json or Deepak.json in \n iterm2>preferences>profiles>Other Actions>Import JSON Profiles..."
     
 }
 
