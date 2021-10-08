@@ -10,8 +10,11 @@ fi
 echo "\nWant to copy zshrc file?\n 1. (Yes)\n 2. (No)\n"
 read copy_zshrc_confirm
 if [ $copy_zshrc_confirm -eq 1 ]; then
-    echo "copying zshrc.."
-    cp ~/.zshrc ./zshrc.sh
+    echo "copying ~/.zshrc "
+    rm ./zshrc.txt
+    touch ./zshrc.txt
+    echo "\n#####\n#Imported changes start here\n#####\n\n" >> ./zshrc.txt
+    cat ~/.zshrc >> ./zshrc.txt
 else
     echo "Skipping copying zshrc\n"
 fi

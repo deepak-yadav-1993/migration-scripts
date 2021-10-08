@@ -47,9 +47,9 @@ fi
 echo "\nWill replace current .zshrc with the file located in this directory! Continue?\n 1. (Yes)\n 2. (No)\n"
 read zshrc_import_confirm
 if [ $zshrc_import_confirm -eq 1 ]; then
-    echo "Copying zshrc.."
-    rm ~/.zshrc
-    cat zshrc.sh >>~/.zshrc
+    echo "Appending at the end of .zshrc file"
+    # rm ~/.zshrc
+    cat zshrc.txt >> ~/.zshrc
 else
     echo "Skipping .zshrc import\n"
 fi

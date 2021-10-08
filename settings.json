@@ -1,40 +1,63 @@
 {
-  "workbench.iconTheme": "vscode-icons",
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.fontLigatures": true,
-  "editor.fontWeight": "400",
   "editor.fontSize": 15,
-  "editor.fontFamily": "Meslo LG S for Powerline, Menlo, Monaco, 'Courier New', monospace",
-  "prettier.printWidth": 95,
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "window.zoomLevel": 0,
+  "calva.paredit.defaultKeyMap": "strict",
+  "explorer.confirmDelete": false,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.colorTheme": "Default Dark+",
-  "prettier.graphqlEnable": ["graphql"],
-  "[typescript]": {
+  "workbench.iconTheme": "material-icon-theme",
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
   },
   "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+    "editor.defaultFormatter": "shakram02.bash-beautify"
+  },
+  "calva.prettyPrintingOptions": {
+    "enabled": true,
+    "printEngine": "pprint",
+    "width": 120,
+    "maxLength": 50
+  },
+  "explorer.confirmDragAndDrop": false,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontFamily": "FiraCode-Retina",
+  "editor.fontLigatures": true,
+  "editor.fontWeight": "400",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "Visual Studio Dark",
+  "[clojure]": {
+    "editor.defaultFormatter": "betterthantomorrow.calva"
+  },
+  "jshint.config": "",
+  "jshint.options": {
+    "esversion": 6
   },
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "beautify.ignore": "",
+  "liveshare.authenticationProvider": "Microsoft",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "zenMode.hideLineNumbers": false,
+  "redhat.telemetry.enabled": true
 }
