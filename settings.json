@@ -59,5 +59,6 @@
     "compounds": []
   },
   "zenMode.hideLineNumbers": false,
-  "redhat.telemetry.enabled": true
+  "redhat.telemetry.enabled": true,
+  "git.autofetch": true
 }
