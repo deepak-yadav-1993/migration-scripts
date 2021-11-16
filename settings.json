@@ -1,6 +1,5 @@
 {
   "editor.fontSize": 15,
-  "window.zoomLevel": 0,
   "calva.paredit.defaultKeyMap": "strict",
   "explorer.confirmDelete": false,
   "[json]": {
@@ -29,7 +28,6 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.fontFamily": "FiraCode-Retina",
   "editor.fontLigatures": true,
   "editor.fontWeight": "400",
   "[jsonc]": {
