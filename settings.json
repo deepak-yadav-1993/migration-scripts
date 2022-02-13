@@ -1,6 +1,5 @@
 {
   "editor.fontSize": 15,
-  "calva.paredit.defaultKeyMap": "strict",
   "explorer.confirmDelete": false,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -13,39 +12,19 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[css]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
-  },
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "calva.prettyPrintingOptions": {
-    "enabled": true,
-    "printEngine": "pprint",
-    "width": 120,
-    "maxLength": 50
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "explorer.confirmDragAndDrop": false,
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "editor.fontWeight": "400",
+  "editor.fontWeight": "350",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.colorTheme": "One Dark Pro",
-  "jshint.config": "",
-  "jshint.options": {
-    "esversion": 6
-  },
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "beautify.ignore": "",
-  "liveshare.authenticationProvider": "Microsoft",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
   "security.workspace.trust.untrustedFiles": "open",
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -55,5 +34,19 @@
   },
   "zenMode.hideLineNumbers": false,
   "redhat.telemetry.enabled": true,
-  "git.autofetch": true
+  "git.autofetch": true,
+  "terminal.integrated.fontSize": 14,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.cursorBlinking": "expand",
+  "workbench.colorTheme": "GitHub Light Default",
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "bracket-pair-colorizer-2.depreciation-notice": false,
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
 }
