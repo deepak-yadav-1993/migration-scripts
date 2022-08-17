@@ -12,6 +12,7 @@ EditorConfig.EditorConfig
 esbenp.prettier-vscode
 formulahendry.auto-rename-tag
 foxundermoon.shell-format
+GitHub.copilot
 ipedrazas.kubernetes-snippets
 kumar-harsh.graphql-for-vscode
 mikestead.dotenv
