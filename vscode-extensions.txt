@@ -2,6 +2,7 @@ agavram.github-vscode-theme-minimal
 akamud.vscode-theme-onedark
 akamud.vscode-theme-onelight
 be5invis.toml
+bmewburn.vscode-intelephense-client
 christian-kohler.npm-intellisense
 CoenraadS.bracket-pair-colorizer-2
 DavidAnson.vscode-markdownlint
@@ -36,6 +37,7 @@ stylelint.vscode-stylelint
 traBpUkciP.vscode-npm-scripts
 viktorzetterstrom.non-breaking-space-highlighter
 vincaslt.highlight-matching-tag
+VisualStudioExptTeam.intellicode-api-usage-examples
 VisualStudioExptTeam.vscodeintellicode
 vscode-icons-team.vscode-icons
 waderyan.gitblame

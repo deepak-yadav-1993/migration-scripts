@@ -40,7 +40,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.cursorBlinking": "expand",
-  "workbench.colorTheme": "GitHub Light Default",
+  "workbench.colorTheme": "Monokai",
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
@@ -48,5 +48,7 @@
   "bracket-pair-colorizer-2.depreciation-notice": false,
   "[javascriptreact]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.stickyScroll.enabled": true
 }
